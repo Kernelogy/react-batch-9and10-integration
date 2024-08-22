@@ -1,11 +1,13 @@
-const Signin = () => {
+const Signup = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const user = {
             username: e.target.username.value,
+            email: e.target.email.value,
+            contact: e.target.contact.value,
             password: e.target.password.value
         }
-        fetch("http://localhost:8080/user/login",{
+        fetch("http://localhost:8080/user/insert", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -15,26 +17,23 @@ const Signin = () => {
         })
         .then(res => res.json())
         .then((json)=>{
-            if(json){
-                alert("Login Success...!")
-            }else{
-                alert("Login Failed")
-            }
+            console.log(json)
         })
         .catch((err)=>{
-            console.log(err)
+            console.log("Problem in creating User")
         })
     }
     return (
         <>
-            <h1>Login Here...!</h1>
             <form onSubmit={(e)=>{handleSubmit(e)}}>
-                <input name="username" type="text" placeholder="Username"/> <br />
+                <input name="username" type="text" placeholder="Username" /> <br />
+                <input name="email" type="email" placeholder="mail@example.com" /> <br />
+                <input name="contact" type="text" placeholder="9876543210" /> <br />
                 <input name="password" type="password" placeholder="Password" /> <br />
-                <input type="submit" value="Login" />
+                <input type="submit" value="Signup" />
             </form>
         </>
     )
 }
 
-export default Signin
+export default Signup
