@@ -3,13 +3,17 @@ import './App.css';
 import Signup from './components/Signup';
 import Signin from './components/Signin'
 import UserList from './components/UserList';
+import AddProduct from './components/AddProduct';
+import ListProducts from './components/ListProducts';
 
 function App() {
   return (
     <div className="App">
       {/* <Signup /> */}
       {/* <Signin /> */}
-      <UserList />
+      {/* <UserList /> */}
+      {/* <AddProduct /> */}
+      <ListProducts />
     </div>
   );
 }
